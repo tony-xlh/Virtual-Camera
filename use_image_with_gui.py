@@ -30,7 +30,6 @@ def handle_mouse_events(event,x,y,flags,param):
     if event == cv2.EVENT_LBUTTONDOWN:
         ix,iy = x,y
         is_mouse_down = True
-        stop_cam(cam)
 
     elif event == cv2.EVENT_MOUSEMOVE:
         tx = ix - x
@@ -42,7 +41,6 @@ def handle_mouse_events(event,x,y,flags,param):
         is_mouse_down = False
         previous_tx = current_tx
         previous_ty = current_ty
-        cam = start_cam(img)
           
 def rotated(image):
     global angle
@@ -72,7 +70,6 @@ def main():
         cv2.imshow('image',img_rotated)
         k = cv2.waitKey(1) & 0xFF
         if k == 27: #esc
-            cam.terminate()
             break
     
     
